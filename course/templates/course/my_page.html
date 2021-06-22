@@ -1,0 +1,11 @@
+{% extends 'course/base.html' %}
+
+{% block content %}
+   <h1>Welcome</h1>
+    <h2>Choose one of these buttons</h2>
+
+<a href = '{% url "branches_list" %}' class = 'btn btn-success'>Branches</a>
+<a href = '{% url "groups_list" %}' class = 'btn btn-success'>Groups</a>
+<a href = '{% url "students_list" %}' class = 'btn btn-success'>Students</a>
+
+{% endblock %}

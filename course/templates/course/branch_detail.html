@@ -1,0 +1,31 @@
+{% extends 'course/base.html' %}
+
+{% block content %}
+
+    <h1>{{branch.name}}</h1>
+    <h2>Добавил: {{branch.creator }}</h2>
+    <p> Адрес: <strong> {{branch.address}} </strong> </p>
+
+    <p> Группы данного филиала: </p>
+    {% if groups %}
+        {% for group in groups %}
+        <h3>{{group.name}}</h3>
+    
+    {% endfor%}
+
+    {% else %}  
+        <h1>Не найдены группы</h1>
+    {% endif %}
+    {% if branch.photo %}
+    <img src="{{ branch.photo.url }}" width="100px" height="100px" >
+    {% else %}
+    <p>Фото отсутсвтует!</p>
+    {% endif %}
+    {}
+
+    {% if user.is_authenticated %}
+    <a href = "{% url 'branch_edit' branch.id %}" class = 'btn btn-primary'>Change/Изменить</a>
+    {% endif%}
+
+
+{%endblock %}
